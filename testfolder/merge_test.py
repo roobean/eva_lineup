@@ -10,6 +10,7 @@ paths = (
 for path in paths:
     df = pd.read_csv(path)
     df["path_file"] = path
+    df["lecture_time"] = list(df["lecture_time"])[-1]
     full_df = pd.concat([df, full_df], axis=0)
 
 
