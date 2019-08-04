@@ -15,4 +15,4 @@ dropped_columns.to_csv(
     header=["dropped_columns"],
     index=False,
 )
-df_filtered.to_csv("./outputs/full_06_pruning_columns.csv")
+df_filtered.to_csv("./outputs/full_06_pruning_columns.csv", index=False)

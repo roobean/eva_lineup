@@ -1,5 +1,6 @@
 import pandas as pd
-from datetime import datetime, time, date
+
+from datetime import datetime, time
 
 df = pd.read_csv("./outputs/full_06_pruning_columns.csv")
 
@@ -34,7 +35,7 @@ def datetimer(row):
         date_from_datetime = datetime.strptime(
             row["datetime"], "%m/%d/%y %H:%M:%S"
         ).date()
-    except:
+    except Exception:
         date_from_datetime = datetime.strptime(
             row["datetime"], "%d/%m/%Y %H:%M"
         ).date()
@@ -45,14 +46,50 @@ def datetimer(row):
 
 df["new_datetime"] = df.apply(datetimer, axis=1)
 
-list_datetime = list(df["new_datetime"].unique())
-print(list_datetime.sort())
-rank_dict = {}
-for i, value in enumerate(list_datetime):
-    rank_dict.update({value: i})
+
+def date_fixer(row):
+    date_fixer_dict = {"2017-04-11": "2017-11-04", "2018-07-02": "2018-02-07"}
+    date_value = row["new_datetime"]
+    date_value_part = date_value[:10]
+    if date_value_part in date_fixer_dict:
+        date_value = date_value.replace(
+            date_value_part, date_fixer_dict[date_value_part]
+        )
+        return date_value
+    else:
+        return date_value
 
 
-df["rank"] = df["new_datetime"].map(rank_dict)
+df["new_datetime"] = df.apply(date_fixer, axis=1)
+
+df["rank"] = df["new_datetime"].rank(method="dense")
 
 
-df.to_csv("./outputs/full_07_datetime.csv")
+def date_only_parser(row):
+    date_from_datetime = datetime.strptime(
+        row["new_datetime"], "%Y-%m-%dT%H:%M:%S"
+    ).date()
+    return date_from_datetime
+
+
+df["solo_date"] = df.apply(date_only_parser, axis=1)
+df["date_rank"] = df["solo_date"].rank(method="dense")
+
+
+# gender fill
+def gender_first_selector(row):
+    if row["gender"] in ["female", "male"]:
+        return row["gender"]
+    else:
+        if "WOMEN" in row["experiment_file"]:
+            return "female"
+        else:
+            return "male"
+
+
+df["gender_updated"] = df.apply(gender_first_selector, axis=1)
+
+
+df.to_csv("./outputs/full_07_datetime.csv", index=False)
+
+# df.iloc[:,np.r_[4,11:18,21:25,37:]]
