@@ -58,16 +58,32 @@ df["lecture_datetime"] = df["date"] + " " + df["lecture_time"]
 
 
 # filling missing member data for live condition
+
+print(len(df[pd.isnull(df["member1"])]))
 live_data = pd.read_csv("./input_other/live_update.csv")
-print(live_data)
 for index, row in df.iterrows():
     if pd.isnull(row["member1"]):
-        print(row["gender_updated"])
-        print(row["subject_nr"])
-        print(row["date_rank"])
-        input()
+        # getting address details
+        gender = row["gender_updated"]
+        subject_nr = row["subject_nr"]
+        date_rank = row["date_rank"]
+
+        # getting row value from external file
+        row_select = live_data[
+            (live_data["Day"] == date_rank)
+            & (live_data["Trial#"] == subject_nr)
+        ]
+
+        if gender == "male":
+            new_values = (row_select.iloc[:, 2:8].values.tolist())[0]
+            df.loc[index, "member1":"member6"] = new_values
+        else:
+            new_values = (row_select.iloc[:, 8:].values.tolist())[0]
+            df.loc[index, "member1":"member6"] = new_values
+
     else:
         pass
+print(len(df[pd.isnull(df["member1"])]))
 
 
 df.to_csv("./outputs_v2/03_cleaning_2.csv", index=False)

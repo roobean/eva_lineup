@@ -18,6 +18,8 @@ for name, group in grouped:
         print(
             group[
                 [
+                    "path_file",
+                    "subject_nr",
                     "gender_updated",
                     "datetime",
                     "datetime_updated",
@@ -38,16 +40,25 @@ for name, group in grouped:
     repetition_list = []
     counter = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0}
     if member_list[0] == 1:
-        for member in member_list:
-            repetition_list.append(counter[member])
-            counter[member] += 1
+        for index, member in enumerate(member_list):
+            # checks for repeated 6
+            if (member == 6) & (member_list[index - 1] == 6):
+                repetition_list.append("repeated_six")
+            else:
+                repetition_list.append(counter[member])
+                counter[member] += 1
+
     elif member_list[0] == 6:
         for index, member in enumerate(member_list):
             if index == 0:
                 repetition_list.append("first_six")
             else:
-                repetition_list.append(counter[member])
-                counter[member] += 1
+                # checks for repeated 6
+                if (member == 6) & (member_list[index - 1] == 6):
+                    repetition_list.append("repeated_six")
+                else:
+                    repetition_list.append(counter[member])
+                    counter[member] += 1
     else:
         print("something else?")
         input()
