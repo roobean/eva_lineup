@@ -20,4 +20,3 @@ for name, group in grouped:
 
 
 df_merge.to_csv("./outputs_v2/04_grouping.csv", index=False)
-

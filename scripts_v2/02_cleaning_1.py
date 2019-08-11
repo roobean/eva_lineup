@@ -92,39 +92,5 @@ LECTURE_TIME_DICT = {
 }
 df["lecture_time"] = df["lecture_time"].map(LECTURE_TIME_DICT)
 
-# member_translate
-MEMBER_TRANSLATE = {
-    "[member6]": "6",
-    "[member5]": "5",
-    "[member4]": "4",
-    "[member3]": "3",
-    "[member2]": "2",
-    "[member1]": "1",
-    "1": "1",
-    "2": "2",
-    "3": "3",
-    "4": "4",
-    "5": "5",
-    "6": "6",
-}
-
-df["member"] = df["member"].map(MEMBER_TRANSLATE)
-
-
-df["person"] = ""
-
-
-def member_locator(row):
-    try:
-        member_location = row["member"]
-        member_address = "member" + member_location
-        row["person"] = row[member_address]
-    except:
-        pass
-
-    return row
-
-
-df = df.apply(member_locator, axis=1)
 
 df.to_csv("./outputs_v2/full_02_cleaning_1.csv", index=False)

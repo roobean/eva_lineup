@@ -59,7 +59,7 @@ df["lecture_datetime"] = df["date"] + " " + df["lecture_time"]
 
 # filling missing member data for live condition
 
-print(len(df[pd.isnull(df["member1"])]))
+
 live_data = pd.read_csv("./input_other/live_update.csv")
 for index, row in df.iterrows():
     if pd.isnull(row["member1"]):
@@ -83,7 +83,40 @@ for index, row in df.iterrows():
 
     else:
         pass
-print(len(df[pd.isnull(df["member1"])]))
 
+
+# member_translate
+MEMBER_TRANSLATE = {
+    "[member6]": "6",
+    "[member5]": "5",
+    "[member4]": "4",
+    "[member3]": "3",
+    "[member2]": "2",
+    "[member1]": "1",
+    "1": "1",
+    "2": "2",
+    "3": "3",
+    "4": "4",
+    "5": "5",
+    "6": "6",
+}
+
+df["member"] = df["member"].map(MEMBER_TRANSLATE)
+
+df["person"] = ""
+
+
+def member_locator(row):
+    try:
+        member_location = row["member"]
+        member_address = "member" + member_location
+        row["person"] = row[member_address]
+    except:
+        pass
+
+    return row
+
+
+df = df.apply(member_locator, axis=1)
 
 df.to_csv("./outputs_v2/03_cleaning_2.csv", index=False)
