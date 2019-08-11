@@ -1,0 +1,22 @@
+nejprve si prosim procti tento mail a pak koukni na prilohu.
+
+Ke struktuře těch dat:
+1. V souborech se objevuji stejna subject_nr (rozdavali jsme vzdy stejne cislo do 3 ruznych podminek), ovsem jsou jine indikatory, podle kterych se daji urcit jedinecna data.
+
+2. Jsou to dvě skupiny souborů: live a video, které jsou odlišné (i predtim jsi mi psal dva kody pro ty dve skupiny dat). 
+- Live soubory jsou zpravidla dva se stejným subject_nr a názvem, jeden je pro gender > female a jeden pro gender > male.
+- Video soubory jsou FB a HS, a kazdy z nich bude mit stejny subject_nr (napr. subject15 bude ve videoFB i ve videoHS, ale jsou to ruzni lide). V kazdem jednotlivem video souboru jsou lineupy pro gender male i female dohromady.
+
+3. Participanti se mohli v kazdem lineupu (pro kazdy gender zvlast) rozhodnout opakovat ten lineup. Tzn., ze pro nektere participanty mame dve (tri nebo ctyri volby).
+
+V priloze posilam participanta, ktery kazdy lineup opakoval dvakrat. Vsechny sloupce, ze kterych potrebuji nejaka data, jsou zvyraznena oranzove. U nekterych sloupcu nebo primo bunek jsou komentare, ktere obsahuji dulezite informace.
+
+>>>>> Co bych potrebovala <<<<<
+
+Sloupec "identification" obsahuje budto NA, "Yes", "No", nebo "Not sure". U vsech lidi potrebuji vsechny radky s volbami "Yes" a "Not sure", u tech, kdo maji pouze "No" potrebuji jeden radek s volbou "No".
+
+U tech, kdo maji "Yes" nebo "Not sure" potrebuji dale data ze sloupcu member (viz priloha).
+
+Navic potrebuji, aby vsechny volby byly oznacene (tedy novy sloupec, ktery bude oznacovat volbu). V priloze to mam jako lineup_rep - kdo ma jen jednu volbu bude mit hodnotu 0 a pak to bude narustat pro prvni opakovani hodnota 1, druhe 2 atd.
+
+Priklady, jak by mel output vypadat, je v priloze - v prvni zalozce jsou data s highlighty a komentari, v druhe zalozce je ukazka vystupu. Subject 19 je pro video, subject 38 je pro live lineup, to budou dva ruzne kody. Potrebuji ale, aby ty vystupy byly kompatibilni, resp. aby se daly jednoduse spojit - v live lineupu bude proto potreba vytvorit nejake sloupce navic (viz priloha).

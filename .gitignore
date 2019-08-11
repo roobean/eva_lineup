@@ -1,10 +1,8 @@
 venv
 .vscode
 input_data
-jupyter
-instructions
 .ipynb_checkpoints
-jupyter/.ipynb_checkpoints
+jupyter\.ipynb_checkpoints
 outputs
 outputs_v2
 testfolder
