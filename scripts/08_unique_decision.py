@@ -40,4 +40,4 @@ for name, group in grouped:
         index = (group.iloc[[0]]).index
         df.loc[index, "unique_decision"] = "rejection"
 
-df.to_csv("./outputs/final_data_2019-08-11.csv", index=False)
+df.to_csv("./outputs/final_data_2020-07-02.csv", index=False)
