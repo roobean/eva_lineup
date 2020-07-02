@@ -29,27 +29,7 @@ for path in list_of_paths:
 
     full_df = pd.concat([df, full_df], axis=0, sort=True)
 
-    # wrong formated [datetime] changed
-    def datetime_fixer(row):
-        datetime_str = str(row["datetime"])
-        date_str = datetime_str[:8]
-        time_str = datetime_str[8:]
-
-        DATE_FIXER_DICT = {
-            "2017-04-11": "2017-11-04",
-            "2018-07-02": "2018-02-07",
-        }
-
-        if date_str in DATE_FIXER_DICT:
-            date_str = DATE_FIXER_DICT["date_str"]
-        else:
-            pass
-
-        return date_str + time_str
-
-    df["datetime"] = df.apply(datetime_fixer, axis=1)
-
 
 full_df["row_order"] = full_df.index
 full_df = full_df.reset_index(drop=True)
-full_df.to_csv("./outputs/full_01_merged.csv")
+full_df.to_csv("./outputs_v2/full_01_merged.csv")
