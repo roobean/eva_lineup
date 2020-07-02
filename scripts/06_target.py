@@ -3,7 +3,7 @@ import pandas as pd
 
 df = pd.read_csv("./outputs/05_grouping_2.csv")
 
-RANK_SELECTION = [2, 4, 6, 8, 17, 19, 22]
+RANK_SELECTION = [2, 4, 6, 8, 17]
 TARGET_PAIR = {
     1: "a",
     2: "b",
@@ -23,7 +23,7 @@ TARGET_PAIR = {
     16: "f",
     17: "g",
     18: "f",
-    19: "g",
+    19: "f",
     20: "f",
     21: "h",
     22: "h",
