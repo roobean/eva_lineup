@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-df = pd.read_csv("./outputs_v2/05_grouping_2.csv")
+df = pd.read_csv("./outputs/05_grouping_2.csv")
 
 RANK_SELECTION = [2, 4, 6, 8, 17, 19, 22]
 TARGET_PAIR = {
@@ -66,4 +66,4 @@ df["target_correct"] = df.apply(target_translator, axis=1)
 df["target_pair"] = df["lecture_datetime_rank"].map(TARGET_PAIR)
 
 
-df.to_csv("./outputs_v2/06_target.csv", index=False)
+df.to_csv("./outputs/06_target.csv", index=False)

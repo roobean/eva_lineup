@@ -1,7 +1,7 @@
 import pandas as pd
 from datetime import time
 
-df = pd.read_csv("./outputs_v2/full_01_merged.csv")
+df = pd.read_csv("./outputs/full_01_merged.csv")
 
 # dropping columns
 columns_to_filter = pd.read_csv("./input_other/filter_columns_v2.csv")[
@@ -13,7 +13,7 @@ df_invert = df.drop(columns_to_filter, axis=1)
 df = df.loc[:, columns_to_filter]
 dropped_columns = pd.Series(list(df_invert.columns))
 dropped_columns.to_csv(
-    "./outputs_v2/INFO_dropped_columns.csv",
+    "./outputs/INFO_dropped_columns.csv",
     header=["dropped_columns"],
     index=False,
 )
@@ -31,7 +31,7 @@ df_singletons = pd.DataFrame(
     dict(column_name=column_names, column_value=column_values)
 )
 
-df_singletons.to_csv("./outputs_v2/other/singletons.csv", index=False)
+df_singletons.to_csv("./outputs/other/singletons.csv", index=False)
 
 df = df.drop(column_names, axis=1)
 
@@ -93,4 +93,4 @@ LECTURE_TIME_DICT = {
 df["lecture_time"] = df["lecture_time"].map(LECTURE_TIME_DICT)
 
 
-df.to_csv("./outputs_v2/full_02_cleaning_1.csv", index=False)
+df.to_csv("./outputs/full_02_cleaning_1.csv", index=False)

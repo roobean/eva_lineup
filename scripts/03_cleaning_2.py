@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-df = pd.read_csv("./outputs_v2/full_02_cleaning_1.csv")
+df = pd.read_csv("./outputs/full_02_cleaning_1.csv")
 
 # condition assignment
 
@@ -119,4 +119,4 @@ def member_locator(row):
 
 df = df.apply(member_locator, axis=1)
 
-df.to_csv("./outputs_v2/03_cleaning_2.csv", index=False)
+df.to_csv("./outputs/03_cleaning_2.csv", index=False)

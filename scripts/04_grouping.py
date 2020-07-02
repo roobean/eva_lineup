@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv("./outputs_v2/03_cleaning_2.csv")
+df = pd.read_csv("./outputs/03_cleaning_2.csv")
 
 # gender first
 grouped = df.groupby(["subject_nr", "condition", "date"])
@@ -19,4 +19,4 @@ for name, group in grouped:
     df_merge = pd.concat([df_merge, group])
 
 
-df_merge.to_csv("./outputs_v2/04_grouping.csv", index=False)
+df_merge.to_csv("./outputs/04_grouping.csv", index=False)

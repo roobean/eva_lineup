@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-df = pd.read_csv("./outputs_v2/06_target.csv")
+df = pd.read_csv("./outputs/06_target.csv")
 """
 
 
@@ -71,4 +71,4 @@ for name, group in grouped:
     df_merge = pd.concat([df_merge, group_copy])
 
 
-df_merge.to_csv("./outputs_v2/07_final_selections.csv", index=False)
+df_merge.to_csv("./outputs/07_final_selections.csv", index=False)

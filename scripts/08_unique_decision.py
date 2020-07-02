@@ -12,7 +12,7 @@ for final_selection == True
 """
 
 
-df = pd.read_csv("./outputs_v2/07_final_selections.csv")
+df = pd.read_csv("./outputs/07_final_selections.csv")
 
 df["unique_decision"] = ""
 
@@ -40,4 +40,4 @@ for name, group in grouped:
         index = (group.iloc[[0]]).index
         df.loc[index, "unique_decision"] = "rejection"
 
-df.to_csv("./outputs_v2/final_data_2019-08-11.csv", index=False)
+df.to_csv("./outputs/final_data_2019-08-11.csv", index=False)

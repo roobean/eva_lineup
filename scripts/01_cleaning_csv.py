@@ -32,4 +32,4 @@ for path in list_of_paths:
 
 full_df["row_order"] = full_df.index
 full_df = full_df.reset_index(drop=True)
-full_df.to_csv("./outputs_v2/full_01_merged.csv")
+full_df.to_csv("./outputs/full_01_merged.csv")

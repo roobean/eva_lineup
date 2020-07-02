@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-df = pd.read_csv("./outputs_v2/04_grouping.csv")
+df = pd.read_csv("./outputs/04_grouping.csv")
 
 
 # repetition
@@ -67,5 +67,5 @@ for name, group in grouped:
     df_merge = pd.concat([df_merge, group])
 
 
-df_merge.to_csv("./outputs_v2/05_grouping_2.csv", index=False)
+df_merge.to_csv("./outputs/05_grouping_2.csv", index=False)
 
