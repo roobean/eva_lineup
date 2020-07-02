@@ -1,0 +1,3 @@
+Ppt 3 did not see member 3 at second viewing (Administrator skipped him). Values moved in the file.
+Ppt 15 did not make any identification, but clicked "Yes" for identification_made and "One" for identification_multiple. Values of identification_made were changed to "No" and identification_multiple to "no".
+Ppt 32 clicked lecture at 1pm but attended 2pm, value changed in the file.

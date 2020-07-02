@@ -1,0 +1,7 @@
+Administrator:
+Subject 1 changed to subject 3 early
+Subject 2 changed to subject 3 later
+
+ER:
+Ppt 1 (renamed 3 early) was in fact ppt 2 (confirmed with post-identification qnr)
+Ppt 2 (renamed 3 later) was in fact ppt 3 (confirmed with post-identification qnr)

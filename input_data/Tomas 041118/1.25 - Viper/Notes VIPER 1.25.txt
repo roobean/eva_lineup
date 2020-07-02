@@ -1,0 +1,6 @@
+Administrator:
+I changed Participant #2 into Participant #4. 
+(Second participant of the day, when we realized we should not go down the list like 1, 2, 3, etc.).
+
+ER:
+Ppt 2 changed into 4

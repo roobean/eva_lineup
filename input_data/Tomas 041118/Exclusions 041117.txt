@@ -1,0 +1,19 @@
+Excluded because saw member 6 or 7 as first
+Full body ppt
+female:
+8
+25
+male:
+6
+15
+21
+
+VIPER ppt
+female:
+3
+10
+14
+26
+male:
+7
+27
